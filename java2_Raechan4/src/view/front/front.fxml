@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.front.Front">
+   <children>
+      <MediaView fx:id="mediaview" fitHeight="720.0" fitWidth="1280.0" />
+      <ImageView fitHeight="327.0" fitWidth="648.0" layoutX="316.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/레트로%20아케이드.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="218.0" layoutY="650.0" strokeType="OUTSIDE" strokeWidth="30.0" text="레트로 아케이드 게임 커뮤니티" textAlignment="CENTER" wrappingWidth="843.3984375">
+         <font>
+            <Font size="48.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#00c3ac" />
+                  <Stop color="#32002c" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+      <BorderPane fx:id="borderpane" layoutX="14.0" layoutY="214.0" prefHeight="390.0" prefWidth="223.0" />
+      <Text layoutX="749.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="comm" wrappingWidth="144.044921875">
+         <font>
+            <Font size="48.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#339a00" />
+                  <Stop color="#00bfff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+      <Text layoutX="889.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="unity" wrappingWidth="152.044921875">
+         <font>
+            <Font size="48.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#00c3ac" />
+                  <Stop color="RED" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+   </children>
+</AnchorPane>

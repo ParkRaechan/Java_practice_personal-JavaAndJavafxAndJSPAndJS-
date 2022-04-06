@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="DB테스트" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Day22.DB테스트컨트롤러">
+   <children>
+      <Label layoutX="38.0" layoutY="49.0" prefHeight="43.0" prefWidth="173.0" text="데이터베이스 테스트">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtwriter" layoutX="38.0" layoutY="106.0" prefHeight="50.0" prefWidth="225.0" promptText="아이디">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtcontent" layoutX="38.0" layoutY="165.0" prefHeight="50.0" prefWidth="225.0" promptText="내용">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btnget" layoutX="300.0" layoutY="56.0" mnemonicParsing="false" onAction="#get" prefHeight="50.0" prefWidth="244.0" text="DB 호출" />
+      <Button fx:id="btnwrite" layoutX="38.0" layoutY="227.0" mnemonicParsing="false" onAction="#write" prefHeight="50.0" prefWidth="225.0" text="DB 등록" />
+      <TextArea fx:id="txtcontentlist" layoutX="297.0" layoutY="116.0" prefHeight="249.0" prefWidth="250.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="992.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label prefHeight="720.0" prefWidth="992.0" style="-fx-background-color: #000000;" />
+      <ImageView fitHeight="720.0" fitWidth="618.0" layoutX="190.0">
+         <image>
+            <Image url="@../../img/복도_귀신.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
