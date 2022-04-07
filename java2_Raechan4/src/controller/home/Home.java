@@ -106,9 +106,10 @@ public class Home implements Initializable {
 	
 	@Override // 실행 초기 메소드 
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		loadpage("/view/chatting.fxml");
 		lblloginid.setText( Front.member.getMid()+" 님" );
 		lblpoint.setText("포인트 : "+ Front.member.getMpoint()+" 점");
-		loadpage("/view/home/homeview.fxml");
+		
 	}
 	int i = 0 ;
 	@FXML// 회원탈퇴 레이블을 클릭했을때 이벤트
