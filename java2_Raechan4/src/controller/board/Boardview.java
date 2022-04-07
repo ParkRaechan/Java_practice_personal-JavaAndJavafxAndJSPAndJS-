@@ -119,8 +119,11 @@ public class Boardview implements Initializable{
     			
     	if(result) {
     		Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setHeaderText("댓글 등록 성공");
     		alert.showAndWait();
+    		txtrecontent.setText("");
     		replytableshow();
+
     	}
     }
     	
@@ -152,7 +155,7 @@ public class Boardview implements Initializable{
         	alert.showAndWait();
         	txttitle.setEditable(false);
         	txtcontent.setEditable(false);
-        	btnupdate.setText("수정,,,");
+        	btnupdate.setText("수정");
         	upcheck = true;
     	}
     	

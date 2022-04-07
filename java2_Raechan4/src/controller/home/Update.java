@@ -29,7 +29,6 @@ public class Update implements Initializable {
 		String email = txtemail.getText();
 		String address = txtaddress.getText();
 		// 2. 업데이트처리[ 회원번호 = Login.member
-		System.out.println("업데이트중간처리");
 		boolean result = MemberDao.memberDao.update( Front.member.getMnum() , email, address);
 		if( result ) {
 			Alert alert = new Alert( AlertType.INFORMATION ); // 메시지 출력

@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -28,20 +29,25 @@ public class Productcontrol implements Initializable {
 
     @FXML
     private VBox vbox;
+    @FXML
+    private TextField txtsearch;
 
     @FXML
-    void accadd(ActionEvent event) {
-    	Home.home.loadpage("/view/product/productadd.fxml");
-    	
-    	
-    }
+    private Button btnsearch;
     
-    public static Product select ; // 선택된 버튼의 제품 저장
-    @Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-
-		// 1. 모든 제품 가져오기
-		ArrayList< Product > productlist = ProductDao.productDao.list();
+    @FXML
+    void search(ActionEvent event) { // 검색 버튼 눌렀을때 
+    	String search = txtsearch.getText(); // 검색창에 입력된 데이터 가져오기
+    	show( search ); // 입력한 검색어를 show 메소드에 넣어주기
+    }
+    void show( String search ) {
+		
+    	if( vbox.getChildren().isEmpty() == false ) { // .isEmpty() : 해당 객체내 비어 있는지 확인 [ vbox내 비어 있는지 확인 ] 
+    		// vbox내 객체가 비어있지 않으면 // vbox내 객체가 존재하면
+    		vbox.getChildren().remove(0); // vbox내 기존 객체를 삭제;
+    	}
+    	// 1. 모든 제품 가져오기
+		ArrayList< Product > productlist  = ProductDao.productDao.list( Home.category , search  );
 		
 		// 2. 그리드 클래스 [ 행/열 ]
 		GridPane gridPane = new GridPane();
@@ -69,13 +75,12 @@ public class Productcontrol implements Initializable {
 					// *버튼 클릭이벤트
 						//	button.setOnAction( e -> { } ); // 람다식 : 인수 -> { 실행코드 }
 					button.setOnAction( e -> { 
-						System.out.println( e.toString() );
 						// 1. 클릭한 버튼의 id 가져오기
 						int id = Integer.parseInt(  e.toString().split(",")[0].split("=")[2] );
 						// 2. 클릭한 제품 번호 저장 
 						select = productlist.get(id);
+						// 3. 화면 전환
 						Home.home.loadpage("/view/product/productview.fxml");
-
 					} );	
 				gridPane.add( button  , col , row); // 그리드내  해당 열번호 , 행번호 에 버튼 추가
 				
@@ -97,7 +102,6 @@ public class Productcontrol implements Initializable {
 						int id = Integer.parseInt(  e.toString().split(",")[0].split("=")[2] );
 						select = productlist.get(id);
 						Home.home.loadpage("/view/product/productview.fxml");
-
 					} );	
 				gridPane.add( button  , col , row+1 ); // 마지막행에 나머지값 만큼 버튼 추가해서 그리드에 추가
 				i++; //인덱스 증가
@@ -105,6 +109,16 @@ public class Productcontrol implements Initializable {
 		}
 		// 4. vbox에 그리도 넣기 
 		vbox.getChildren().add(gridPane);
+    }
+    @FXML
+    void accadd(ActionEvent event) {
+    	Home.home.loadpage("/view/product/productadd.fxml");
+    }
+    
+    public static Product select ; // 선택된 버튼의 제품 저장
+    @Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		show(null); // 화면을 처음 열렸을때는 검색어를 null 넣어주기
 	}
 }
 
