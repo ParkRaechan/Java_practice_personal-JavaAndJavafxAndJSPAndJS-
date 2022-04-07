@@ -25,7 +25,7 @@ public class Day26_server {
 			ServerSocket serverSocket = new ServerSocket();
 			//2. 서버소켓 바인딩						// ip주소 , port 설정 
 			serverSocket.bind( 
-					new InetSocketAddress("127.168.102.50",5000) );
+					new InetSocketAddress("192.168.17.20",5000) );
 			// 3. 클라이언트의 요청 대기 
 			while( true ) {
 				System.out.println("[[서버가 연결 대기중입니다]]");

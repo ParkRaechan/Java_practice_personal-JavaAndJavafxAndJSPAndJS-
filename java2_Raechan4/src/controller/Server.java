@@ -35,7 +35,7 @@ public class Server implements Initializable {
     public void serverstart() { 
     	try {
 	    	serverSocket = new ServerSocket(); // 1. 서버소켓 메모리할당
-	    	serverSocket.bind( new InetSocketAddress( "127.0.0.1" , 1234 ) ); 	// 2. 서버소켓 바인딩 [ ip 와 port 설정 ] 
+	    	serverSocket.bind( new InetSocketAddress( "192.168.17.20" , 1234 ) ); 	// 2. 서버소켓 바인딩 [ ip 와 port 설정 ] 
     	}catch( Exception e ) {}
     		// 3. 클라이언트의 요청 대기  [ 멀티스레드 사용하는이유 : 1.연결 2.보내기 3.받기 동시 처리 ] 
     	Runnable runnable = new Runnable() {

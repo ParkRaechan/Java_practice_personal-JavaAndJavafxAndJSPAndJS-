@@ -34,7 +34,7 @@
          </textFill>
       </Label>
       <Button fx:id="btnconnect" layoutX="84.0" layoutY="150.0" mnemonicParsing="false" onAction="#connect" prefHeight="51.0" prefWidth="528.0" text="채팅창 입장" />
-      <TextArea fx:id="txtconnect" layoutX="84.0" layoutY="219.0" prefHeight="333.0" prefWidth="528.0" />
+      <TextArea fx:id="txtcontent" layoutX="84.0" layoutY="219.0" prefHeight="333.0" prefWidth="528.0" />
       <Button fx:id="btnsend" layoutX="507.0" layoutY="571.0" mnemonicParsing="false" onAction="#send" prefHeight="62.0" prefWidth="105.0" text="전송" />
       <TextField fx:id="txtmsg" layoutX="84.0" layoutY="571.0" prefHeight="62.0" prefWidth="409.0" />
       <TextField fx:id="txtname" layoutX="700.0" layoutY="305.0" prefHeight="42.0" prefWidth="222.0" />
@@ -43,7 +43,7 @@
       <Label layoutX="707.0" layoutY="370.0" text="ip 주소" textFill="WHITE" />
       <Label layoutX="707.0" layoutY="454.0" text="포트번호" textFill="WHITE" />
       <Label layoutX="707.0" layoutY="282.0" text="채팅방 닉네임" textFill="WHITE" />
-      <Label alignment="CENTER" layoutX="707.0" layoutY="249.0" prefHeight="15.0" prefWidth="177.0" text="어쩌고 저쩌고" textFill="WHITE" />
+      <Label alignment="CENTER" layoutX="687.0" layoutY="249.0" prefHeight="15.0" prefWidth="249.0" text="* 아래 3가지 입력시 입장이 가능합니다. *" textFill="WHITE" />
       <ImageView fitHeight="115.0" fitWidth="222.0" layoutX="707.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/레트로%20아케이드.png" />
