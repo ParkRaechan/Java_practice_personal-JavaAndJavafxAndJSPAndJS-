@@ -22,8 +22,7 @@ public class Start extends Application{
 		Image image = new Image("/img/레트로 아케이드.png");
 		
 		stage.getIcons().add(image);
-		
-		
+				
 		
 		stage.setResizable(true);
 		stage.setTitle("에프엑스 연습창");
