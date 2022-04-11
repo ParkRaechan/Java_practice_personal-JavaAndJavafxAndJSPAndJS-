@@ -1,14 +1,10 @@
 package controller;
 
 import java.net.URL;
-import java.util.List;
 import java.util.Map;
-import java.util.Observable;
 import java.util.ResourceBundle;
 
 import dao.MemberDao;
-import dao.ProductDao;
-import dto.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -132,11 +128,16 @@ public class Record implements Initializable {
 	PieChart.Data data10 = new PieChart.Data("액션게임팩", 10);
 	list.add(data10);
 	
-	Map<String, Integer> map = MemberDao.memberDao.countcategory();
-	for(String key : map3.keySet()) {
-		PieChart.Data temp = new PieChart.Data(key, map3.get(key));
-		list.add(temp);
-	}
+	Map< String , Integer > map3 
+	= MemberDao.memberDao.countcategory();
+
+	for( String key : map3.keySet() ) {
+	// 3. 원형차트 데이터 추가 
+	PieChart.Data temp 
+		= new PieChart.Data( key , map3.get(key) );
+	// * 데이터를 리스트에 추가 
+	list.add(temp);
+}
 	
 	ppc.setData( list );
 	

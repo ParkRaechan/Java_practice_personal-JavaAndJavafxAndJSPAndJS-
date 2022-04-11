@@ -244,5 +244,19 @@ public class MemberDao {
 				return map;
 			}catch( Exception e ) {} return null;
 		}
-		
+		// 11. 카테고리별 개수 
+		public Map<String, Integer> countcategory() {
+			Map<String, Integer> map = new HashMap<>();
+			String sql ="select pcategory , count(*) "
+					+ " from product "
+					+ " group by pcategory";
+			try {
+				ps = con.prepareStatement(sql);
+				rs = ps.executeQuery();
+				while( rs.next() ) {
+					map.put( rs.getString(1) , rs.getInt(2) );
+				}
+				return map;
+			}catch( Exception e ) {} return null;
+		}
 }
