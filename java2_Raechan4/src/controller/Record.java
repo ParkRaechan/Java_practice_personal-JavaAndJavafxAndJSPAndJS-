@@ -137,8 +137,7 @@ public class Record implements Initializable {
 		PieChart.Data temp = new PieChart.Data(key, map3.get(key));
 		list.add(temp);
 	}
-			
-			
+	
 	ppc.setData( list );
 	
 	}
