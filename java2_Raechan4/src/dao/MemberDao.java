@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 import dto.Member;
 
@@ -203,4 +206,43 @@ public class MemberDao {
 			}catch(Exception e ) { System.out.println( "[SQL 오류]"+e  ); }
 			return null;
 		}
+		
+		
+		//인수에따른전체수 반환
+		public int counttotal(String tname) {
+			
+			String sql = "select count(*) from "+ tname;
+			try {
+				ps = con.prepareStatement(sql);
+				rs = ps.executeQuery();
+				if(rs.next()) {
+					return rs.getInt(1);
+				}
+				
+				
+				
+			}catch (Exception e) {}
+			
+			return 0;
+			
+		}
+		
+		// 10. ( 인수 : 테이블명 , 날짜필드명 )의 날짜별 레코드 전체 개수 반환
+		public Map<String, Integer> datetotal( String 테이블명 , String 날짜필드명 ){
+			Map<String, Integer> map  = new TreeMap<>();
+			
+			String sql = "select substring_index( "+날짜필드명+" , ' ' , 1 )  , count(*)"
+						+ " from "+테이블명
+						+ " group by substring_index( "+날짜필드명+" , ' ' , 1 )";
+			try {
+				ps = con.prepareStatement(sql);
+				rs = ps.executeQuery();
+				while( rs.next() ) {
+					map.put( rs.getString(1) , rs.getInt(2) );
+					// 결과의 해당 레코드의 첫번째필드[날짜]   , 두번째 필드[가입자수] 
+				}
+				return map;
+			}catch( Exception e ) {} return null;
+		}
+		
 }

@@ -39,7 +39,7 @@ public class Start extends Application{
 				}
 			}
 		});
-		
+		 
 		stage.setResizable(true);
 		stage.setTitle("에프엑스 연습창");
 		stage.show();

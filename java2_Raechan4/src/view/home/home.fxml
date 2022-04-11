@@ -51,6 +51,7 @@
             <Label fx:id="lblproduct4" layoutX="154.0" layoutY="397.0" onMouseClicked="#accproduct4" text="액션게임팩" textFill="WHITE" />
             <Line endX="139.0" endY="553.0" layoutX="87.0" layoutY="-199.0" startX="-51.0" startY="553.0" stroke="WHITE" strokeWidth="2.0" />
             <Label layoutX="34.0" layoutY="360.0" prefHeight="15.0" prefWidth="110.0" text="중고거래게시판" textFill="WHITE" />
+            <Label fx:id="lblrecord" layoutX="24.0" layoutY="516.0" onMouseClicked="#accrecord" text="통계" textFill="WHITE" />
          </children>
       </AnchorPane>
    </left>

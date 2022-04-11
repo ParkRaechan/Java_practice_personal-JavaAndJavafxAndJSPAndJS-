@@ -26,7 +26,8 @@ public class Home implements Initializable {
 	// * this : 현재 클래스의 메모리 호출
 	public Home() { home = this; }
 	
-	
+	@FXML
+	private Label lblrecord;
 	@FXML
 	private Label lblloginid;
 	@FXML
@@ -54,7 +55,10 @@ public class Home implements Initializable {
 
 	public static String category;
 	
+	@FXML// 
+	public void accrecord( MouseEvent e ) { loadpage("/view/record.fxml"); }
 	
+	 
 	@FXML// 남성의류 레이블을 클릭했을때 이벤트
 	public void accproduct1( MouseEvent e ) { 
 		category="게임기";

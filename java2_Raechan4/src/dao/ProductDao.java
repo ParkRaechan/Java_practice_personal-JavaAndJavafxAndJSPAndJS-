@@ -49,7 +49,12 @@ public class ProductDao {
 		ArrayList<Product> productlist = new ArrayList<>();
 		try {
 			String sql = null;
-			if( search == null ) { // 검색이 없을경우
+			
+			if(category == null && search == null) {
+				sql = "select * from product";
+				ps = con.prepareStatement(sql);
+			}
+			else if( search == null ) { // 검색이 없을경우
 				sql  = "select * from product where pcategory = ? order by pnum desc";	// SQL 작성
 				ps = con.prepareStatement(sql);			// SQL 연결 
 				ps.setString( 1 , category );
