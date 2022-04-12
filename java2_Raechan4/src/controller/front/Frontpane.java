@@ -72,11 +72,17 @@ public class Frontpane implements Initializable {
     	String password = txtpassword.getText();
     	boolean result = MemberDao.memberDao.login(id, password);
     	if(result) {
-    		lblconfirm.setText("야근이 시작됐다,,,,");
-    		
+    		lblconfirm.setText("로그인성공");
     		Front.member = MemberDao.memberDao.getmember(id);
     		
-    		Main.instance.loadpage("/view/home/home.fxml");
+    		
+    		boolean result2 = MemberDao.memberDao.pointplus();
+    		if(result2) {
+        		Front.member = MemberDao.memberDao.getmember(id);
+
+        		Main.instance.loadpage("/view/home/home.fxml");
+
+    		}
     	}else {
     		lblconfirm.setText("동일한 아이디가 존재하지 않는다,,,");
     	}

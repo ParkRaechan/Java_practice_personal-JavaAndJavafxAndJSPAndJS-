@@ -1,14 +1,22 @@
 package dao;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.sql.Connection;
+import java.util.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+import controller.front.Front;
 import dto.Member;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class MemberDao {
 	
@@ -17,7 +25,7 @@ public class MemberDao {
 	private ResultSet rs;
 	
 	public static MemberDao memberDao= new MemberDao();
-	
+	public static ArrayList<String> pointlist = new ArrayList<>();
 	public MemberDao() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -226,7 +234,76 @@ public class MemberDao {
 			return 0;
 			
 		}
+		//포인트획득파일처리
+		public boolean pointplus() {
+			try {
+				load();
+				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+				
+				String now =Front.member.getMid()+format.format(new Date());
+				String sql = "update member set mpoint=? where mnum=?";
+				ps = con.prepareStatement(sql);
+				boolean p = false;
+				for(int i=0; i<pointlist.size(); i++) {
+					if(pointlist.get(i).equals(now)) {
+						p=true;
+					}
+				}
+				if(p==true) {
+					ps.setInt(1, Front.member.getMpoint());
+				}else {
+					ps.setInt(1, (Front.member.getMpoint()+10));
+					Alert alert = new Alert( AlertType.INFORMATION ); // 메시지 객체 선언 
+	    			alert.setHeaderText("10포인트가 추가됬습니다");
+	    			alert.showAndWait(); // 실행 
+					i = Front.member.getMid()+format.format(new Date());
+					save();
+				}
+				ps.setInt(2, Front.member.getMnum());
+				ps.executeUpdate();
+				
+				
+				return true;
+			} catch(Exception e) {
+				System.out.println("sql 오류 : "+ e);
+			}
+			return false;
+		}
 		
+		public static String i;
+		
+		// 파일 저장
+		public static void save() {
+			
+			try {
+				FileOutputStream outputStream = new FileOutputStream("D:/java/point.txt", true);
+				String a = i+"\n";
+				outputStream.write(a.getBytes());
+				
+			}catch(Exception e) {
+				System.out.println("알림)) 파일 저장 실패(관리자에게 문의)");
+			}
+		}
+		// 파일 불러오기
+		public static void load() {
+			try {
+				FileInputStream fileInputStream = new FileInputStream("D:/java/point.txt");
+				byte[] bytes = new byte[1024];
+				fileInputStream.read(bytes);
+				String file = new String(bytes);
+				String[] point = file.split("\n");
+
+				int i=0; // 인덱스용
+				for(String temp : point) { 
+					if(i+1==point.length) break;			
+					pointlist.add(temp);
+					i++; // 인덱스 증가
+				}
+				
+			} catch(Exception e) {
+				System.out.println("알림)) 파일 로드 실패(관리자에게 문의)");
+			}
+		}
 		// 10. ( 인수 : 테이블명 , 날짜필드명 )의 날짜별 레코드 전체 개수 반환
 		public Map<String, Integer> datetotal( String 테이블명 , String 날짜필드명 ){
 			Map<String, Integer> map  = new TreeMap<>();
