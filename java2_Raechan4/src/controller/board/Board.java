@@ -26,22 +26,22 @@ public class Board implements Initializable {
 
     @FXML
     void accwrite(ActionEvent event) {
-    	// * HomeÅ¬·¡½º³» borderpane center º¯°æ
+    	// * HomeÅ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ borderpane center ï¿½ï¿½ï¿½ï¿½
     	Home.home.loadpage("/view/board/boardwrite.fxml");
     }
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-    	// * arraylist °¡ ¾Æ´Ñ ObservableList »ç¿ëÇÏ´Â ÀÌÀ¯ [tableview°¡ ObservableList¸¦ »ç¿ë ] 
-    	// 1. db¿¡¼­ ¸ðµç °Ô½Ã±Û °¡Á®¿À±â
+    	// * arraylist ï¿½ï¿½ ï¿½Æ´ï¿½ ObservableList ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ [tableviewï¿½ï¿½ ObservableListï¿½ï¿½ ï¿½ï¿½ï¿½ ] 
+    	// 1. dbï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     	ObservableList<dto.Board> boardlist = BoardDao.boardDao.list();
-    	// 2. tableview ¿¡ Ãß°¡ 
+    	// 2. tableview ï¿½ï¿½ ï¿½ß°ï¿½ 
     	TableColumn tc = boardtable.getColumns().get(0);
     	tc.setCellValueFactory(new PropertyValueFactory<>("bnum"));
     	
     	tc = boardtable.getColumns().get(1);
     	tc.setCellValueFactory(new PropertyValueFactory<>("btitle"));
-
+    	
     	tc = boardtable.getColumns().get(2);
     	tc.setCellValueFactory(new PropertyValueFactory<>("bwrite"));
     	

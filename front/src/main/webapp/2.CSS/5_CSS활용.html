@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+	<style type="text/css">
+	
+		body{
+			background-image: url("패턴맞나.jpg");
+			/*배경이미지:자동채우기*/
+			background-repeat: no-repeat;
+			/*배경이미지:자동채우기 취소*/
+			color: black;
+		}
+		div{
+			border:solid 3px green;
+			width: 500px; /*가로사이즈(기본값100px)*/
+			height: 500px;/*세로사이즈(기본값100px)*/
+		}
+		#t1{background-color: skyblue;}
+		#t2{background-color: yellow;}
+		.t3{background-color: black;}
+	
+		table,th,td{
+			border: solid 2px black;
+		}
+		table{
+			border-collapse:collapse;
+			margin:50px;
+		}
+	
+	</style>
+	
+	
+	
+</head>
+<body>
+	<h3>배경 이미지</h3>
+
+		<div id="t1">	<!-- 한줄차지 박스모델 -->
+			아령하세여~
+		</div>
+		<p>
+		asdasd
+		</p>
+	<h3>테이블</h3>
+		<div id="t2">
+			하잇~!!
+			<table>
+			<tbody>
+				<tr>
+					<th>종류</th>
+					<th>중인</th>
+					<th>소인</th>
+					<th>비고</th>
+				</tr>
+				<tr>
+					<td>주간권</td>
+					<td>20000원</td>
+					<td>10000원</td>
+					<td rowspan="3">
+						공원 입장 및 놀이공원 이용<br>
+						(일부별도요금)
+					</td>
+					
+				</tr>
+				<tr>
+					<td>야간권</td>
+					<td>20000원</td>
+					<td>10000원</td>
+					
+					
+				</tr>
+				<tr>
+					<td>주간권</td>
+					<td>20000원</td>
+					<td>10000원</td>
+					
+					
+				</tr>
+				
+				</tbody>
+			</table>
+		</div>
+		
+		<span id="t3">
+			허잇!
+		</span>
+		
+</body>
+</html>
