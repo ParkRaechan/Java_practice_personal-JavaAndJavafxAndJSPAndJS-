@@ -1,15 +1,17 @@
 @charset "UTF-8";
-
+*{
+	
+	background-image: url("https://img.freepik.com/free-vector/flat-comic-style-background_23-2148882944.jpg?w=2000");
+}
 #success1{
 	background-color: skyblue;
 	margin : 20px;
-	width : 1000px;
 	float: left;
 	height: 170px;
-	 
+	margin-left: 200px;
 }
 #success1 div{
-	
+
 	font-size:100px;
 		
 }

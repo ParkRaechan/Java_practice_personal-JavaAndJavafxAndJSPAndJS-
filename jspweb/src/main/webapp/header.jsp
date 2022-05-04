@@ -18,7 +18,21 @@
 	%>
 	
 	<div class="container">
-		<a href="/jspweb/main.jsp">home</a>
+		<a href="/jspweb/main.jsp">EZEN SHOP</a>
+		<a href="#"> BIG SIZE </a>
+		<a href="#"> MUSCLE-FIT </a>
+		<a href="#"> 1+1 이벤트 </a>
+		<a href="#"> 아우터 </a>
+		<a href="#"> 상의 </a>
+		<a href="#"> 바지 </a>
+		<a href="#"> 슈즈 </a>
+		<a href="#"> 악세사리 </a>
+		<a href="#"> BEST </a>
+		<a href="#"> 트레이닝 </a>
+		<a href="#"> 모델처러입자 </a>
+		<a href="#"> 50% 할인 </a>
+		<input type="text"><button>검색</button>
+		<a href="#"> <img src="img/드래곤볼z.png"></a><br>
 		<% if(loginid==null){ %>
 		<a href="/jspweb/member/login.jsp">로그인</a>
 		<a href="/jspweb/member/signup.jsp">회원가입</a>
@@ -26,8 +40,9 @@
 		<% if(loginid!=null){ %>
 		<span><%=loginid%>님</span>
 		<a href="/jspweb/logout">로그아웃</a>
-		<a href="/jspweb/member/memberinfo.jsp">회원정보</a>
+		<a href="/jspweb/member/myshopping.jsp">나의쇼핑</a>
 		<%} %>
+		<a href="#">고객센터</a>
 		
 	</div>
 	<!-- 부트스트랩 js cdn -->

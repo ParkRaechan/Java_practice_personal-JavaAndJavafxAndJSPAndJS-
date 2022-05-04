@@ -10,9 +10,19 @@ import javax.servlet.http.HttpSession;
 
 import dao.MemberDao;
 
-/**
- * Servlet implementation class login
+
+/*
+ *    
+ *  해당 클래스로 접근할수 있는 URL 정의[만들기]
+ *  @WebServlet("/login") 
+ *  
+ *  *목적 ( 서로 다른 언어들간의 통신이 된다 ) VIEW <---> CONTROLLER
+ *  
+ *  view(html,jsp,js,css등) ---- 매핑 ( @WebServlet ) ----->  controller(java)
+ *		// 1. 해당 클래스의 @WebServlet 어노테이션 이용해서 클래스의 URL 정의[만들기]
+ *		// 2. VIEW에서 경로를 설정하여 정의된 클래스의 URL로 이동할수 있다.
  */
+
 @WebServlet("/login")
 public class login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -36,7 +46,7 @@ public class login extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-protected void doPost(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 		
 		// 1. 요청 
 		String mid = request.getParameter("mid");
@@ -64,3 +74,10 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response )
 	}
 
 }
+
+
+
+
+
+
+
