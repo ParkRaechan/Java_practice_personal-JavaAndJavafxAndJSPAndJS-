@@ -5,11 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<link href="/jspweb/css/error.css" rel="stylesheet">
+
+
 </head>
 <body>
 	<%@include file = "../header.jsp" %>
-	<div class="container">
-		<h3>에러<br></h3>
+	<div class="container" id = "success1">
+		<div>에러<br></div>
 		관리자에게 문의
 	</div>
 	<%@include file = "../footer.jsp" %>
