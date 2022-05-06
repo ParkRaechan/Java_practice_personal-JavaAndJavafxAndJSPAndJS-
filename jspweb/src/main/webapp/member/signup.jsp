@@ -27,10 +27,10 @@
 		@
 		<input type="text" id="memailaddress" name="memailaddress" >
 		<select id="emailselect">
-			<option value=""> 직접입력 </option>
-			<option value="naver.com"> naver.com </option>
-			<option value="nate.com"> nate.com </option>
-			<option value="daum.com"> daum.com </option>
+			<option value="" id="qwer1" name="qwer1"> 직접입력 </option>
+			<option value="naver.com"  id="qwer2" name="qwer2"> naver.com </option>
+			<option value="nate.com" id="qwer3" name="qwer3"> nate.com </option>
+			<option value="daum.com" id="qwer4" name="qwer4"> daum.com </option>
 		</select>
 		<span id="emailcheck"></span>
 		<br>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>이게 게시판이냐</title>
 <link href="/jspweb/css/main.css" rel="stylesheet">
 
 </head>
