@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import dao.BoardDao;
 import dao.MemberDao;
 import dto.Board;
@@ -39,11 +42,24 @@ public class write extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		//저장경로
+		String uploadpath = "C:\\Users\\504\\git\\newfx\\jspweb\\src\\main\\webapp\\board\\upload";
+		
+		//첨부파일 업로드
+		MultipartRequest multi = new MultipartRequest(
+				request,		// 요청방식 
+				uploadpath,		// 파일 저장 경로 
+				1024*1024*10,	// 파일 최대 용량 허용 범위[10MB]
+				"UTF-8",		// 인코딩타입 
+				new DefaultFileRenamePolicy()
+				
+				);
+		
 		// 데이터 요청 
-		request.setCharacterEncoding("UTF-8");
-		String btitle = request.getParameter("btitle");
-		String bcontent = request.getParameter("bcontent");
-		String bfile = request.getParameter("bfile");
+		String btitle = multi.getParameter("btitle");
+		String bcontent = multi.getParameter("bcontent");
+		String bfile = multi.getFilesystemName("bfile");
 			HttpSession session = request.getSession();
 			String mid = (String)session.getAttribute("login");
 		int mno = MemberDao.getmemberDao().getmno(mid);
