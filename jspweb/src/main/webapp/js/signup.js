@@ -138,20 +138,30 @@ $( function(){  // 문서 열리면 해당 코드가 실행
 		}
 	});
 	
+	
 	// 이메일주소 목록상자 선택시 
 	$("#emailselect").change( function(){ // 목록상자내 값이 변경 되었을때 이벤트
-		
+			
 		let emailselect = $("#emailselect").val();
 		if( emailselect == "" ){
 			$("#memailaddress").val("");
+			$("#emailcheck").html("이메일 주소 입력해주세요~");  pass[5] = false;
 			$("#memailaddress").attr("readonly" , false); // 읽기모드 취소
 		}else{
 			$("#memailaddress").val(emailselect);	// val() -> value 값
 			$("#memailaddress").attr("readonly" , true); // attr -> attribute 속성
+			//이메일주소 입력되있는것으로 바꿨을시 사용가능으로 변경		
+			$("#emailcheck").html("사용가능한 이메일 입니다."); pass[5] = true;
 		}
 		
 	});
-	
+	//직접입력에서 .com 포함시 사용가능
+	$("#memailaddress").keyup(function(){
+		let qqq = $("#memailaddress").val();
+		if(qqq.contains(".com")){
+			$("#emailcheck").html("사용가능한 이메일 입니다."); pass[5] = true;
+		}
+	});
 	
 	// 주소 체크 
 	$("#sample4_detailAddress").keyup( function() {
@@ -230,16 +240,12 @@ function signup(){
             }
         }).open();
     }
-   
+
+
+
 function passwordchange(){
 	$("#passwordbox").css("display","block");
 }
-
-
-
-
-
-
 
 
 

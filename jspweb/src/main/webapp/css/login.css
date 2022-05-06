@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+#success1{
+	background-color: skyblue;
+	margin : 20px;
+	width : 1000px;
+	float: left;
+	height: 170px;
+	 
+}
+#success1 div{
+	
+	font-size:20px;
+		
+}

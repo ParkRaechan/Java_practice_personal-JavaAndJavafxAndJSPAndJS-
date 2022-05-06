@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="/jspweb/css/delete.css" rel="stylesheet">
+
 </head>
 	
 	<%@include file = "../header.jsp" %>
@@ -14,17 +16,15 @@
 	
 	<div class="container"> <!-- 박스권 -->
 		<div class="row"> <!-- 가로배치 -->
-			<div class="col-md-3"> <!-- 사이드바 -->
+			<div class="col-md-3" id="qwer"> <!-- 사이드바 -->
 				<%@include file ="infosidebar.jsp" %>
 			</div>	
 			<div class="col-md-9"> <!-- 본문 -->
 				<h3> 회원탈퇴 확인 </h3>
-			
-				<input type="password" id=mpassword name="mpassword">
+					<input type="password" id=mpassword name="mpassword">
 				<button id="btncofirm"onclick="passwordcheck('<%=mid%>')">확인</button>
 				<span id="checkmsg"></span>
 				<button id="btndelete" style="display: none;" onclick="mdelete('<%=mid%>')">탈퇴승인</button>
-			
 			</div>
 		</div>
 	</div>
