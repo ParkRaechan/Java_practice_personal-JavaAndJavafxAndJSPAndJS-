@@ -7,8 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/jspweb/css/update.css" rel="stylesheet">
-
 </head>
 
 	<%@include file = "../header.jsp" %>
@@ -22,7 +20,7 @@
 	
 	<div class="container"> <!-- 박스권 -->
 		<div class="row"> <!-- 가로배치 -->
-			<div class="col-md-3" id="qwer"> <!-- 사이드바 -->
+			<div class="col-md-3"> <!-- 사이드바 -->
 				<%@include file ="infosidebar.jsp" %>
 			</div>	
 			<div class="col-md-9"> <!-- 본문 -->

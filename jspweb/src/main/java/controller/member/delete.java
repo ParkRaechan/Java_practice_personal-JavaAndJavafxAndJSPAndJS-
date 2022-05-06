@@ -28,13 +28,14 @@ public class delete extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		String mid = request.getParameter("mid");
-		boolean result
-		= MemberDao.getmemberDao().delete(mid);
-		if(result) {response.getWriter().print(1);
-		response.sendRedirect("/jspweb/main.jsp");}
-		else {response.getWriter().print(2);}
+		boolean result 
+		=  MemberDao.getmemberDao().delete( mid );
+		if( result ) { 
+			response.getWriter().print(1); 
+		}
+		else { response.getWriter().print(2);}
 	}
 
 	/**
