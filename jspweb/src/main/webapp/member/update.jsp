@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>래찬스토어</title>
 <link href="/jspweb/css/update.css" rel="stylesheet">
 
 </head>
