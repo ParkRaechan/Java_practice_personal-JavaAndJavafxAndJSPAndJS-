@@ -3,12 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<meta charset="UTF-8">
+<title>래찬 스토어</title>
 	<!-- 썸머노트 기본 부트스트랩 3버전 -->
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 	<!-- 게시판api( 썸머노트) css cdn -->
 	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    
+    <!-- 썸머노트 css cdn -->
+	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+	
 </head>
 <body>
 	

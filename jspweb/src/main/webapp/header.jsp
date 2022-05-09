@@ -29,7 +29,7 @@
 				<li><a href="#"> #WHATS'NEW &nbsp;</a></li>
 				<li><a href="#"> #EVENT &nbsp;</a></li>
 				<li><a href="#"> #HELP &nbsp;</a></li>
-				<li><a href="#"> #쇼핑백 &nbsp;</a></li>
+				<li><a href="#"> #RAE &nbsp;</a></li>
 				<li><a href="#"> #ADDITIONAL &nbsp;</a></li>
 		
 			</ul>
