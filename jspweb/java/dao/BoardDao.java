@@ -64,11 +64,29 @@ public class BoardDao extends Dao {
 		
 	}
 	// 4. 게시물 수정 메소드 	[ 인수 : 수정할 게시물번호  / 수정된 내용 ]
-	public boolean update( Board board ) { return false; }
+	public boolean update( Board board ) { 
+		String sql = "update board set btitle=? , bcontent=? , bfile=? where bno = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString( 1 , board.getBtitle() );
+			ps.setString( 2 , board.getBcontent() );
+			ps.setString( 3 , board.getBfile() );
+			ps.setInt( 4 , board.getBno() );
+			ps.executeUpdate(); return true;
+		}
+		catch (Exception e) { System.out.println( e );} return false;
+	}
 	// 5. 게시물 삭제 메소드 	[ 인수 : 삭제할 게시물번호 
 	public boolean delete( int bno ) { 
 		String sql = "delete from board where bno="+bno;
 		try { ps = con.prepareStatement(sql); ps.executeUpdate(); return true;}
+		catch (Exception e) {} return false;
+	}
+	
+	// 5-2 첨부파일만 삭제( null로 변경 ) 메소드 
+	public boolean filedelete( int bno ) {
+		String sql = "update board set bfile = null where bno = "+bno;
+		try { ps = con.prepareStatement(sql); ps.executeUpdate(); return true; }
 		catch (Exception e) {} return false;
 	}
 	// 6. 게시물 조회 증가 메소드 	[ 인수 : 증가할 게시물번호 ]

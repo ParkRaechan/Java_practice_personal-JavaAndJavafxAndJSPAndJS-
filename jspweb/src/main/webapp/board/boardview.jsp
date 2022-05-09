@@ -19,8 +19,8 @@
 			String mid = (String)session.getAttribute("login"); 			// 세션 = 로그인된 아이디 
 			if( board.getMno() == MemberDao.getmemberDao().getmno(mid) ){ 	// 아이디로 회원번호 가져와서 비교 
 		%>
-		<a href="delete"> <button>삭제</button> </a>
-		<a href="update.jsp"> <button>수정</button> </a>
+		<a href="delete?bno=<%=board.getBno()%>"> <button>삭제</button> </a>
+		<a href="update.jsp?bno=<%=board.getBno()%>"> <button>수정</button> </a>
 		<%} %>
 		<a href="boardlist.jsp"> <button>목록</button> </a>
 		<table>

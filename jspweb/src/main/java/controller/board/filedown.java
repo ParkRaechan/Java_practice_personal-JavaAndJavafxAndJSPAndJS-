@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class filedown
  */
-@WebServlet("/filedown")
+@WebServlet("/board/filedown")
 public class filedown extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -32,6 +32,7 @@ public class filedown extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("UTF-8");			// 1.요청시 한글 인코딩타입
 		String bfile = request.getParameter("bfile"); 	// 2.변수(파일명) 요청 
 		

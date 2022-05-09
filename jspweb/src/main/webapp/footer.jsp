@@ -8,9 +8,9 @@
 <div id="footer">
 	<div id = "footer_box">
 		<ul id = "address"><!-- 주소 -->
-			<li>서울시 강남구 삼성동 1234 우:123-1234</li>
-			<li>TEL:031-123-1234 Email : email@domain.com</li>
-			<li>COPYRIGHT (C) 루바토 ALL RIGHTS RESERVED</li>
+			<li>서울시 강남구 어쩔 1234 티비:123-1234</li>
+			<li>TEL:123-1234-1234 Email : 어쩔티비@korea.com</li>
+			<li>------래찬명품관------</li>
 		</ul>
 		<ul id = "footer_logo"><!-- 주소 -->
 			<li><img alt="" src="/jspweb/img/협력업체혁진사로고.png"></li>
