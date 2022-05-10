@@ -28,7 +28,7 @@
 		<table class="table">
 			
 			<tr>
-				<th>번호</th><th>제목</th><th>작성자</th>
+				<th>번호</th><th>제목</th><th>댓글수</th><th>작성자</th>
 				<th>조회수</th><th>작성일</th>
 			</tr>
 			
@@ -37,6 +37,7 @@
 				// 1. 모든 게시물  호출 
 				ArrayList<Board> boardlist = 
 					BoardDao.getBoardDao().getboardlist();
+				
 				for( Board board : boardlist ){
 			%>
 				<!-- 
@@ -51,12 +52,14 @@
 					<td> <%=board.getBno() %> </td>
 					<td> 
 							<a href="boardview.jsp?bno=<%=board.getBno()%>">
-								<%=board.getBtitle() %>
+								<%=board.getBtitle()%>
 							</a> 
 					</td>
+					<td> <%=BoardDao.getBoardDao().getreplylist(board.getBno())%> </td>
 					<td> <%=board.getMid() %> </td>
 					<td> <%=board.getBview() %> </td>
 					<td> <%=board.getBdate() %> </td>
+					
 				</tr>
 			<%
 				}

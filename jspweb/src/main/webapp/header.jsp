@@ -10,7 +10,8 @@
 	<!-- 사용자정의 css -->
 	<link href="/jspweb/css/main.css" rel="stylesheet">
 	<link href="/jspweb/css/header.css" rel="stylesheet">
-	
+	<!-- 어썸폰트[아이콘] -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
 </head>
 <body>
 	<!--   헤더페이지[ 모든 페이지 사용되기 때문에 = 최상위에서 절대경로 ] -->
@@ -44,7 +45,8 @@
 			<% if(loginid!=null){ %>
 			<span><%=loginid%>님</span>
 			<a href="/jspweb/logout">&nbsp;LOGOUT&nbsp;</a>
-			<a href="/jspweb/member/myshopping.jsp">&nbsp;SHOPPINGBAG&nbsp;</a>
+			<a href="/jspweb/member/myshopping.jsp">&nbsp;MYMENUE&nbsp;</a>
+			<a href="#">&nbsp;MYBAG-<span class="shoppingbox">0</span></a>
 			<%} %>
 			<a href="/jspweb/board/boardlist.jsp">&nbsp;BOARD&nbsp;</a>
 		</div>

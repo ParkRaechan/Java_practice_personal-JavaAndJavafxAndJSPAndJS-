@@ -133,29 +133,101 @@ public class BoardDao extends Dao {
 			ps.executeUpdate(); return true;
 		} catch (Exception e) {System.out.println(e);}return false;
 		}
-	// 8. 댓글 출력 메소드 		[ 인수 : x ]
-	public ArrayList<Reply> replylist(int bno) {
-		ArrayList<Reply> replylist = new ArrayList<Reply>();
-		String sql = "select * from reply where bno = "+bno+" and rindex = 0";
-		try {
-			ps = con.prepareStatement(sql);
-			ps.executeQuery();
-			while(rs.next()) {
-				Reply reply = new Reply(
-						rs.getInt(1),rs.getString(2),
-						rs.getString(3),rs.getInt(4),
-						rs.getInt(5),rs.getInt(6),null);
-				
-				replylist.add(reply);
-				
-			}
-			return replylist;
-		} catch (Exception e) {System.out.println(e);}
-		return null;}
+	// 8. 댓글 출력 메소드 		[ 인수 : 현재 게시물번호 ]
+		public ArrayList<Reply> replylist( int bno ) { 
+			ArrayList<Reply> replylist = new ArrayList<Reply>();
+			String sql = "select * from reply where bno = "+bno+" and rindex = 0"; // rindex = 0  : 댓글만 출력 [ 대댓글 제외 ] 
+			try {
+				ps = con.prepareStatement(sql);
+				rs = ps.executeQuery(); 
+				while( rs.next() ) { 
+					Reply reply = new Reply( 
+							rs.getInt(1) , rs.getString(2) , 
+							rs.getString(3) , rs.getInt(4) , 
+							rs.getInt(5), rs.getInt(6), null);
+					replylist.add(reply);
+				}
+				return replylist;
+			}catch (Exception e) { System.out.println( e ); } return null; 
+		}
+		
+		// 8-2 대댓글 출력 메소드 
+		public ArrayList<Reply> rereplylist( int bno , int  rno ){
+			ArrayList<Reply> rereplylist = new ArrayList<Reply>();
+			String sql = "select * from reply where bno = "+bno+" and rindex = "+rno;
+			try { 
+				ps = con.prepareStatement(sql); rs= ps.executeQuery();
+				while( rs.next() ) {
+					Reply reply = new Reply(
+							rs.getInt(1) , rs.getString(2),
+							rs.getString(3), rs.getInt(4), 
+							rs.getInt(5), rs.getInt(6), null);
+					rereplylist.add(reply);
+				}
+				return rereplylist;
+			}catch (Exception e) { System.out.println(e); } return null;
+			
+		}
+	
 	// 9. 댓글 수정 메소드 		[ 인수 : 수정할 댓글 번호 ]
 	public boolean replyupdate() { return false; }
 	// 10. 댓글 삭제 메소드 		[ 인수 : 삭제할 댓글 번호 ] 
-	public boolean replydelete() { return false; }
+	public boolean replydelete( int rno) { 
+		String sql ="delete from reply "
+				+ "where rno = "+rno+" or rindex = "+rno;
+		try { 
+			ps = con.prepareStatement(sql); 
+			ps.executeUpdate();
+			return true;
+		}
+		catch( Exception e ) {} return false;
+	}
+	
+	//00-1.댓글개수출력메소드
+	public int getreplylist(int bno) { 
+		// 내림차순 
+		String sql = "select count(*) from reply where bno="+bno;
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while( rs.next() ) {
+				System.out.println(rs.getInt(1));
+				return rs.getInt(1);
+				
+			}
+			
+			
+		}catch (Exception e) { System.out.println( e );} return 0; 
+		
+	}
+	//00-2.댓글수정메소드
+	public boolean replyupdate(Reply reply) {
+		String sql = "update set rcontent=? reply(rcontent,rindex,bno,mno) values(?,?,?,?)";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, reply.getRcontent());
+			ps.setInt(2, reply.getRindex());
+			ps.setInt(3, reply.getBno());
+			ps.setInt(4, reply.getMno());
+			ps.executeUpdate(); return true;
+		} catch (Exception e) {System.out.println(e);}return false;
+		}
+	
+	
+	/*
+	public boolean update( Board board ) { 
+		String sql = "update board set btitle=? , bcontent=? , bfile=? where bno = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString( 1 , board.getBtitle() );
+			ps.setString( 2 , board.getBcontent() );
+			ps.setString( 3 , board.getBfile() );
+			ps.setInt( 4 , board.getBno() );
+			ps.executeUpdate(); return true;
+		}
+		catch (Exception e) { System.out.println( e );} return false;
+	}
+	*/
 }
 
 
