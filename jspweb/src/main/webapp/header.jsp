@@ -38,15 +38,15 @@
 			<input type="text"><button>검색</button>
 			
 			<% if(loginid==null){ %>
-			<a href="/jspweb/member/login.jsp">&nbsp;로그인&nbsp;</a>
-			<a href="/jspweb/member/signup.jsp">&nbsp;회원가입&nbsp;</a>
+			<a href="/jspweb/member/login.jsp">&nbsp;LOGIN&nbsp;</a>
+			<a href="/jspweb/member/signup.jsp">&nbsp;SIGNUP&nbsp;</a>
 			<%} %>
 			<% if(loginid!=null){ %>
 			<span><%=loginid%>님</span>
-			<a href="/jspweb/logout">&nbsp;로그아웃&nbsp;</a>
-			<a href="/jspweb/member/myshopping.jsp">&nbsp;나의쇼핑&nbsp;</a>
+			<a href="/jspweb/logout">&nbsp;LOGOUT&nbsp;</a>
+			<a href="/jspweb/member/myshopping.jsp">&nbsp;SHOPPINGBAG&nbsp;</a>
 			<%} %>
-			<a href="/jspweb/board/boardlist.jsp">&nbsp;자유게시판&nbsp;</a>
+			<a href="/jspweb/board/boardlist.jsp">&nbsp;BOARD&nbsp;</a>
 		</div>
 	</div>	
 		

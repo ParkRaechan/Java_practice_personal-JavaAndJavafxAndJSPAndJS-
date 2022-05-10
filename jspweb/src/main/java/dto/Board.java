@@ -28,8 +28,9 @@ public class Board {
 		this.mno = mno;
 		this.bfile = bfile;
 		this.bview = bview;
-		// 작성일이 오늘이면 시간만 표시 // 아니면 날짜만 표시 
+			// 작성일이 오늘이면 시간만 표시 // 아니면 날짜만 표시 
 			// 현재 날짜 : LocalDate.now() 
+		if(bdate!=null) {
 		DateTimeFormatter dateformat = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // 날짜 형식 변환 설정 
 		String today = dateformat.format( LocalDate.now() ) ; // 오늘날짜를 문자열 변환
 		String boardday = bdate.split(" ")[0];	// 날짜만 
@@ -41,6 +42,9 @@ public class Board {
 		else { this.bdate = boardday; }
 		
 		// mno를 가지고 mid출력
+		
+		}else {this.bdate = bdate;}
+		
 		this.mid = MemberDao.getmemberDao().getmid(mno);
 		
 	}

@@ -10,6 +10,7 @@
 <link href="/jspweb/css/info.css" rel="stylesheet">
 
 </head>
+<body>
 	<%@include file = "../header.jsp" %>
 	<div class="container"> <!-- 박스권 -->
 		<div class="row"> <!-- 가로배치 -->

@@ -8,9 +8,9 @@
 	<%@include file = "../header.jsp" %>
 	<div class="container">
 		<form action="../login" method="post">
-			로그인 : <input type="text" name="mid">
-			비밀번호 : <input type="text" name="mpassword">
-			<input type="submit" value="로그인">
+			ID : <input type="text" name="mid">
+			PASSWORD : <input type="text" name="mpassword">
+			<input type="submit" value="LOGIN">
 			<!-- 만약에 로그인실패시 -->
 			<%
 				String result = request.getParameter("result");
