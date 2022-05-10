@@ -109,7 +109,7 @@ function replydelete( rno ){
 	});
 }
 
-
+/*
 function rereplyupdate( rno , bno ){ // 대댓글 쓰기 메소드 
 	let rrcontent = $("#rrcontent").val();
 	$.ajax({
@@ -128,3 +128,4 @@ function rereplyupdate( rno , bno ){ // 대댓글 쓰기 메소드
 }
 
 
+*/
