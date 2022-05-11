@@ -27,7 +27,7 @@
 	
 	// 세션을 이용한 검색처리 저장 
 	// 검색이 있을경우
- 	if( key !=null && keyword != null ){
+		if( key !=null && keyword != null ){
 		session.setAttribute( "key", key ); // 세션 설정 [ 세션명 , 세션데이터 ]
 		session.setAttribute( "keyword", keyword );
 	}else{ // 검색이 없을경우 
@@ -95,7 +95,7 @@
 <!------------------------- 전체글 / 인기글  버튼 구역 -------------------------- -->
 		<div class="row boardlist_topbtn">
 			<div class="col-md-1 offset-10">
-				<button class="form-control">전체글</button>
+				<a href="boardlist.jsp?key=&keyword="> <button class="form-control">전체글</button>  </a>
 			</div>
 			<div class="col-md-1">
 				<button class="form-control">인기글</button>

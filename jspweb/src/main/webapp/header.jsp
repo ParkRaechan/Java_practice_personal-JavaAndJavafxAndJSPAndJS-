@@ -30,7 +30,7 @@
 				<li><a href="#"> #WHATS'NEW &nbsp;</a></li>
 				<li><a href="#"> #EVENT &nbsp;</a></li>
 				<li><a href="#"> #HELP &nbsp;</a></li>
-				<li><a href="#"> #RAE &nbsp;</a></li>
+				<li><a href="/jspweb/teamchatting.jsp"> #RAE &nbsp;</a></li>
 				<li><a href="#"> #ADDITIONAL &nbsp;</a></li>
 		
 			</ul>
@@ -48,7 +48,7 @@
 			<a href="/jspweb/member/myshopping.jsp">&nbsp;MYMENUE&nbsp;</a>
 			<a href="#">&nbsp;MYBAG-<span class="shoppingbox">0</span></a>
 			<%} %>
-			<a href="/jspweb/board/boardlist.jsp">&nbsp;BOARD&nbsp;</a>
+			<a href="/jspweb/board/boardlist.jsp?key=&keyword=">&nbsp;BOARD&nbsp;</a>
 		</div>
 	</div>	
 		
