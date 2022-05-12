@@ -1,4 +1,4 @@
-package Dao;
+package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,8 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import Dto.Board;
-import Dto.Member;
+import dto.Board;
+import dto.Member;
 
 public class Dao {
 	

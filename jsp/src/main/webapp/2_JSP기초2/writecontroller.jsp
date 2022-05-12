@@ -1,4 +1,4 @@
-<%@page import="Dao.Dao" %>
+<%@page import="dao.Dao" %>
 <%@page import="dto.Board" %>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
