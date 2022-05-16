@@ -79,15 +79,3 @@ function stockupdate( ){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
