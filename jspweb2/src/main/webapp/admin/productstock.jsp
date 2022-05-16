@@ -23,12 +23,12 @@
 	</form>
 	
 	재고 목록 
-	<table id="stocklistbox"> 
+	<table class="table" id="stocklistbox"> 
 	
 	</table>
 	
 	<!-- 스크립트 추가 -->
-	<script src="/jspweb2/js/productstock.js" type="text/javascript"></script>
+	<script src="/jspweb/js/productstock.js" type="text/javascript"></script>
 
 </body>
 </html>
