@@ -53,7 +53,7 @@
 				<th> <!-- 색상과 사이즈에 따른 재고량 표시  -->
 					<% if( !stocks.isEmpty() ){ // 재고리스트가 비어 있지 않으면 %>
 						<% if(stocks.get(0).getSamount() == 0 ){ // 재고리스트의 첫번쨰 재고정보가 0이면 %>
-						<span id='amountbox<%=p.getPno()%>'> 해당 사이즈색상에 재고없음 </span> 
+						<span id='amountbox<%=p.getPno()%>'> 해당 사이즈색상 <br> 재고없음 </span> 
 						<% }else{ %>
 						<span id='amountbox<%=p.getPno()%>'> <%=stocks.get(0).getSamount() %></span> 
 					<% }%>
@@ -63,14 +63,23 @@
 				</th> 			
 				
 				<th>  <!-- 색상과 사이즈에 따른 재고 수정일 표시  -->
-					<span> </span> 
+				<% if( !stocks.isEmpty() ){ // 재고리스트가 비어 있지 않으면 %>
+						<% if(stocks.get(0).getSamount() == 0 ){ // 재고리스트의 첫번쨰 재고정보가 0이면 %>
+							<span id="datebox<%=p.getPno()%>"> - </span> 
+						<% }else{ %>
+							<span id="datebox<%=p.getPno()%>"> <%=stocks.get(0).getUpdatedate() %> </span> 
+					<% }%>
+					<%}else{ // 재고리스트가 비어 있으면 %>
+							<span id="datebox<%=p.getPno()%>"> - </span> 
+					<%} %>
+					
 				</th>
 				
 				<th> 
 					<button class="">제품 삭제</button> 
 					<button class="">제품 수정</button> 
 					<button onclick="pnomove(<%=p.getPno() %>)" data-bs-toggle="modal" data-bs-target="#activemodal">상태 변경</button> 
-					<button class="">재고 변경</button> 
+					<button onclick="getstock(<%=p.getPno() %>)" data-bs-toggle="modal" data-bs-target="#stockmodal" >재고 변경</button> 
 				</th>
 			</tr>
 		<%
@@ -79,7 +88,6 @@
 		%>
 		
 	</table>
-	
 	
 	<!-- 상태변경 부트스트랩 - 모달구역  -->
 	<div class="modal" tabindex="-1" id="activemodal">
@@ -99,6 +107,31 @@
 	      		<button type="button" class="btn btn-primary" onclick="activechange(2)">품절</button>
 	      		<button type="button" class="btn btn-primary" onclick="activechange(3)">중단</button>
 	        	<button id="modalclosebtn" type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<!-- 재고변경 - 모달구역  -->
+	<div class="modal" tabindex="-1" id="stockmodal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">  <!-- 모달 제목 -->
+	        <h5 class="modal-title"> 제품 재고 변경 </h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">  <!-- 모달 내용  -->
+	      	<table id="stocklistbox">
+	      		
+	      	</table>
+	      	<div id="updatebox" style="display: none;">
+	      		재고번호 : <input type="hidden" id="sno"> 
+	      		재고수량 : <input type="text" id="samount">
+	      	</div>
+	      </div>
+	      <div class="modal-footer"> <!-- 모달 버튼 -->
+	      		<button type="button" class="btn btn-primary" onclick="stockupdate()"> 수정 처리</button>
+	        	<button id="modalclosebtn2" type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
 	      </div>
 	    </div>
 	  </div>

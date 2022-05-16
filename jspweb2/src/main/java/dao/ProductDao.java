@@ -106,10 +106,18 @@ public class ProductDao extends Dao {
 				list.add(stock);
 			}
 			return list;
-		}catch (Exception e) { System.out.println( e ); }return null; 
+		}catch (Exception e) { System.out.println( e ); } return null; 
 	}
 
 	// 3. 제품의 재고 수정 
+		public boolean stockupdate( int sno , int samount ) {
+			String sql = "update stock set samount = "+samount+" where sno="+sno;
+			try {
+				ps = con.prepareStatement(sql);
+				ps.executeUpdate(); return true;
+			}catch (Exception e) { System.out.println( e ); } return false;
+			
+		}
 	// 4. 제품의 재고 삭제
 //////////////////////////////////////////////////////////////////////////
 	
