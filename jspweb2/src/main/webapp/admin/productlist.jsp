@@ -40,7 +40,7 @@
 				//////////////////////////////////////////////////
 		%>
 			<tr>
-				<th><%=p.getPno() %></th>		<th><img width="100%" src="/jspweb/admin/productimg/<%=p.getPimg()%>"></th> 	
+				<th><%=p.getPno() %></th>		<th><img width="100%" src="/jspweb2/admin/productimg/<%=p.getPimg()%>"></th> 	
 				<th><%=p.getPname() %></th> 	<th><%=p.getPprice()%></th>
 				<th><%=p.getPdiscount() %></th>	<th><%=p.getPprice()*p.getPdiscount() %></th>		
 				<th><%=p.getPactive() %></th> 	<th><%=p.getCno() %></th>
@@ -148,7 +148,7 @@
 	  </div>
 	</div>
 	
-	<script src="/jspweb/js/productlist.js" type="text/javascript"></script>
+	<script src="/jspweb2/js/productlist.js" type="text/javascript"></script>
 
 </body>
 </html>

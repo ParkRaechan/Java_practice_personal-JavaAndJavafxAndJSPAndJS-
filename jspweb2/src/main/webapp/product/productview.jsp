@@ -11,7 +11,7 @@
 <html>
 <head>
 	<!--사용자정의 css 호출-->
-	<link rel="stylesheet" href="/jspweb/css/productview.css">
+	<link rel="stylesheet" href="/jspweb2/css/productview.css">
 </head>
 <body>
 	<%@include file = "../header.jsp" %>
@@ -125,7 +125,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="/jspweb/js/productview.js" type="text/javascript"></script>
+	<script src="/jspweb2/js/productview.js" type="text/javascript"></script>
 	<%@include file = "../footer.jsp" %>
 
 </body>
