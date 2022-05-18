@@ -7,7 +7,7 @@ create table product(
     pname varchar(1000) ,  /* 제품 명 */
     pprice int ,  /* 제품 가격 */
     pdiscount float ,  /* 제품 할인율 = float = 실수 자료형*/
-    pactive int default 0,  /* 제품 상태 */
+    pactive int default 0,  /* 제품 상태 [ 0:준비중(기본값)  1:판매중  2:재고준비중 */
 	pimg varchar(1000) ,  /* 제품 이미지 */
     cno int , /* 제품 카테고리 */
     foreign key( cno ) references category(cno) on update cascade 
@@ -15,7 +15,7 @@ create table product(
     /* on update cascade : pk 레코드가 수정 되면 fk 레코드 도 같이 수정된다 */
 );
 
-create table3 stock( 
+create table stock( 
 	sno int primary key auto_increment , /* 재고 번호 */
     scolor varchar(100) ,  /* 재고 색상 */
     ssize varchar(100) ,   /* 재고 색상 */
@@ -32,7 +32,13 @@ create table3 stock(
 
 /* 한 명령어( ; 기준 = 커서위치 ) 씩 실행단축키 = ctrl+엔터 */
 
-
+create table plike(
+	plikeno int primary key auto_increment , 
+    pno int ,
+    mno int ,
+    foreign key(pno) references product(pno) on delete cascade ,
+    foreign key(mno) references member(mno) on delete cascade 
+)
 
 
 
@@ -94,6 +100,12 @@ select * from product join stock on product.pno = stock.pno;
         max( 필드명 ) : 최댓값
         min( 필드명 ) : 최솟값 
 /*	
+
+
+
+
+
+
 
 
 
