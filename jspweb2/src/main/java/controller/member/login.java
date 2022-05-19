@@ -61,13 +61,13 @@ public class login extends HttpServlet {
 			HttpSession session = request.getSession(); // 1. Http 내장 세션 호출 [ JSP 생략 => 내장객체 ] 
 			session.setAttribute("login", mid ); // 2. 세션에 값 저장 
 								// 세션명 , 데이터
-			response.sendRedirect("/jspweb/main.jsp");  // 페이지 전환
+			response.sendRedirect("/jspweb2/main.jsp");  // 페이지 전환
 			
 		}
 		else if( result == 2 ) { // 아이디 혹은 비밀번호 다름
-			response.sendRedirect("/jspweb/member/login.jsp?result=2"); 
+			response.sendRedirect("/jspweb2/member/login.jsp?result=2"); 
 		}else { // DB 오류 
-			response.sendRedirect("/jspweb/error.jsp");
+			response.sendRedirect("/jspweb2/error.jsp");
 		}
 		
 		

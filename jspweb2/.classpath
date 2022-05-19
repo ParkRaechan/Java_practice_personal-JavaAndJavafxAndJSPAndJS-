@@ -23,6 +23,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="D:/라이브러리/json.jar"/>
+	<classpathentry kind="lib" path="D:/라이브러리/json/base/json.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
