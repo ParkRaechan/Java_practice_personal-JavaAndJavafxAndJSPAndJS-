@@ -77,7 +77,14 @@ public class savecart extends HttpServlet {
 				}
 				Cart cart = new Cart( 0 , amount, totalprice, sno , mno );
 				System.out.println( "json->dto : "+ cart.toString()  ); // 테스트 확인 
+				
+				int error = -1;
+				boolean re = ProductDao.getProductDao().savecart(cart);
+				if(re==false) {error = i;}
+				else {response.getWriter().print(i);}
 			}
+			response.getWriter().print(1);
+			
 		}catch (Exception e) {}
 		
 	}
