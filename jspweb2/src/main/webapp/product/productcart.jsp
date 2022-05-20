@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-	<link href="/jspweb/css/productcart.css" rel="stylesheet">
+	<link href="/jspweb2/css/productcart.css" rel="stylesheet">
 
 </head>
 <body>
@@ -44,12 +44,12 @@
 			
 			<div class="row my-5"> <!-- 부트스트랩만 사용되는 구역  -->
 				<div class="col-sm-3 offset-3">
-					<a href="/jspweb/main.jsp">
+					<a href="/jspweb2/main.jsp">
 						<button class="form-control py-4"> 계속 쇼핑하기 </button>
 					</a> 
 				</div>
 				<div class="col-sm-3">
-					<a href="/jspweb/product/orderpay.jsp">
+					<a href="/jspweb2/product/orderpay.jsp">
 						<button style="background-color: blue; color: white;" 
 						class="form-control py-4"> 구매하기 </button>
 					</a>
@@ -60,7 +60,7 @@
 		</div>
 		
 		
-	<script type="text/javascript" src="/jspweb/js/productcart.js"></script>
+	<script type="text/javascript" src="/jspweb2/js/productcart.js"></script>
 	<%@include file = "../footer.jsp" %>
 	
 	
