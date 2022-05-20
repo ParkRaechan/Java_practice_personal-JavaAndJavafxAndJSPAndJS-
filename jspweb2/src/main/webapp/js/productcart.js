@@ -11,10 +11,7 @@ let point = 0; // 포인트 변수 선언
 $( function(){  
 	getcart();
 });
-/* 8. 장바구니 삭제 처리 메소드 */
-function deletecart( i ){
-	
-}
+
 /* 2.  장바구니 데이터 호출 메소드 */
 function getcart(){
 	$.ajax({
@@ -52,7 +49,7 @@ function tableview(){
 '					<td> <!--  상품정보 열 -->'+
 '						<div class="row"> <!-- row(b) : 하위 태그를 가로배치   -->'+
 '							<div class="col-sm-2"> <!-- col-sm-2(b) : 12그리드 중 2그리드 사용 -->'+
-'								<img alt="" src="/jspweb/admin/productimg/'+jsonarray[i]["pimg"]+'" width="70%"> '+
+'								<img alt="" src="/jspweb2/admin/productimg/'+jsonarray[i]["pimg"]+'" width="70%"> '+
 '							</div>'+
 '							<div class="col-sm-10">'+
 '								<div class="pnamebox"> '+jsonarray[i]["pname"]+' </div>'+
@@ -116,6 +113,16 @@ function updatecart(){
 		}
 	});
 }
+/* 8. 장바구니 삭제 처리 메소드 */
+function deletecart( i ){
+	$.ajax({
+		url :'deletecart',
+		data : { 'cartno' : jsonarray[i]["cartno"] } ,
+		success : function( re ){
+			getcart();
+		}
+	});
+}
 
 /* 5. 수량 증가 메소드 */
 function amountincre(i){
@@ -148,21 +155,15 @@ function amountdecre(i){
 function cancel( i ){
 	if( i == -1 ){  // 만약에 i가 -1 이면 전체 삭제 
 		if( confirm('전체 삭제하시겠습니까?') ){
-			// confirm("내용") : 확인/취소 버튼 알림창 
-				// 만약에 확인 눌렀을떄 - true  // 취소 -> false;
-			jsonarray.splice( 0 , jsonarray.length );
-				// 0번 인덱스부터 마지막인덱스까지 삭제 
-			tableview();
+			// confirm("내용") : 확인/취소 버튼 알림창  // 만약에 확인 눌렀을떄 - true  // 취소 -> false;
+			for( let j = 0 ; j<jsonarray.length; j++ ){
+				deletecart( j ); // 삭제  DB처리 
+			}
 		}
 		return;
 	}
-	jsonarray.splice( i , 1 ); // i번째 부터 1개를 삭제 
-	tableview();	// 테이블 새로고침
+	deletecart( i ); // 삭제  DB처리 
 }
-
-
-
-
 
 
 
