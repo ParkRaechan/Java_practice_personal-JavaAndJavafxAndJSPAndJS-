@@ -18,22 +18,18 @@
 				<h3>회원정보</h3>
 				
 				<%
-				// 1. 세션 호출 [ 회원id 저장 ]
-				String mid 
-					= (String)session.getAttribute("login");
-				// 2. DB 메소드 호출 
-				Member member 
-					= MemberDao.getmemberDao().getmember(mid);
-				// 3. HTML에 객체 표현식
+
+					String loginid2 
+					= (String)session.getAttribute("login2");	//이메일
+					String loginid3 
+					= (String)session.getAttribute("login3");	//생일-백업비번
+					String loginid00 
+					= (String)session.getAttribute("login00");	//mid
 				%>
-				회원번호 : <%=member.getMno() %> <br>
-				아이디 : <%=member.getMid() %> <br>
-				이름 : <%=member.getMname() %> <br>
-				연락처 : <%=member.getMphone() %> <br>
-				이메일 : <%=member.getMemail() %> <br>
-				배송주소 : <%=member.getMaddress() %> <br>
-				포인트 : <%=member.getMpoint() %> <br>
-				가입날짜 : <%=member.getMdate() %> <br>
+				회원번호1 : <%=loginid%> <br>
+				회원번호2 : <%=loginid2%> <br>
+				회원번호3 : <%=loginid3%> <br>
+				회원번호4 : <%=loginid00%> <br>
 			</div>
 		</div>
 	</div>
