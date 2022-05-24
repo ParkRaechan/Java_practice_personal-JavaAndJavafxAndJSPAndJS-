@@ -33,12 +33,13 @@
 						<li> <a href="/jspweb2/member/signup.jsp"  class="header_topmenu">회원가입</a> · </li> 
 					<%} %>
 					<% if( loginid != null ){ %> <!--  만약에 로그인된 상태 = 만약에 세션이 있으면 -->
+							<%if( loginid == "focks1012@naver.com"){%><li>관리자 모드</li><%} %>
 						<li> <span  class="header_topmenu"> <%=loginid %>님 </span> · </li>
 						<li> <a href="/jspweb2/logout"  class="header_topmenu">로그아웃</a> · </li>
 						<li> <a href="/jspweb2/member/myshopping.jsp"  class="header_topmenu">나의쇼핑</a> · </li>
 						
 						<!-- 로그인 id가 admin이면  -->
-						<%  if( loginid.equals("admin") ){ %>
+						<%  if( loginid.equals("focks1012@naver.com") ){ %>
 							<li> <a href="/jspweb2/admin/dashboard.jsp"  class="header_topmenu">관리자모드</a> </li>
 						<%} %>
 						

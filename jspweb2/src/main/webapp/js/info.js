@@ -37,24 +37,14 @@ function mdelete( mid ){
 				// js에서 하이퍼링크 [ 페이지연결 ]
 				// html :  <a href="경로">
 				// js : location.href="경로">
-				location.href="/jspweb2/logout"; // 서블릿 
+				location.href="/jspweb/logout"; // 서블릿 
 			}else{
-				location.href="/jspweb2/error.jsp"; // 페이지
+				location.href="/jspweb/error.jsp"; // 페이지
 			}
 		}
 	});
 	
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
