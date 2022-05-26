@@ -1,7 +1,7 @@
 
 let jsonlist1; // 차트1 사용될 json 
 let jsonlist2; // 차트2 사용될 json
-
+let jsonlist3;
 $( function(){ 
 	
 	// -- type 1 : 일별 매출차트 데이터 
@@ -194,14 +194,130 @@ $( function(){
 				
 				}); // end am5.ready()
 			//////////////////////////////////////////////////////////////////////////////////////	
-					}
+					
+					}  // ajax2 success end
 				}); // ajax2 end 
-			
 		} // ajax1  success end 
 	}); // ajax1 end 
+});
+function getchart(sno){
+	alert(sno);
+	$.ajax({
+		url : "getchart",
+		data : {"type" : 3 , "value" : sno},
+		success : function(re){
+			jsonlist3 = re;
+			console.log(re);
+			am5.ready(function() {
+
+			// Create root element
+			// https://www.amcharts.com/docs/v5/getting-started/#Root_element
+			var root = am5.Root.new("chartdiv3");
+			
+			
+			// Set themes
+			// https://www.amcharts.com/docs/v5/concepts/themes/
+			root.setThemes([
+			  am5themes_Animated.new(root)
+			]);
+			
+			
+			// Create chart
+			// https://www.amcharts.com/docs/v5/charts/xy-chart/
+			var chart = root.container.children.push(am5xy.XYChart.new(root, {
+			  panX: true,
+			  panY: true,
+			  wheelX: "panX",
+			  wheelY: "zoomX",
+			  pinchZoomX:true
+			}));
+			
+			
+			// Add cursor
+			// https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+			var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
+			  behavior: "none"
+			}));
+			cursor.lineY.set("visible", false);
+			
+			
+			function generateData(i) {
+               // i번째 객체에서 값 가져오기
+               let value = parseInt(jsonlist3[i]["value"]);
+               // i번째 객체에서 날짜 가져오기
+               // * 문자열 -> 날짜형식 변환 new Date("날짜형식문자")
+               let date = new Date(jsonlist3[i]["date"]);
+               date.setHours(0, 0, 0, 0);
+	           am5.time.add(date, "day", 0);
+	           return {
+	             date: date.getTime(),
+	             value: value
+	           };
+	         }
+			
+			function generateDatas(count) {
+			  var data = [];
+			  for (var i = 0; i < count; ++i) {
+			    data.push(generateData(i));
+			  }
+			  return data;
+			}
+			
+			
+			// Create axes
+			// https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+			var xAxis = chart.xAxes.push(am5xy.DateAxis.new(root, {
+			  maxDeviation: 0.2,
+			  baseInterval: {
+			    timeUnit: "day",
+			    count: 1
+			  },
+			  renderer: am5xy.AxisRendererX.new(root, {}),
+			  tooltip: am5.Tooltip.new(root, {})
+			}));
+			
+			var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+			  renderer: am5xy.AxisRendererY.new(root, {})
+			}));
+			
+			
+			// Add series
+			// https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+			var series = chart.series.push(am5xy.LineSeries.new(root, {
+			  name: "Series",
+			  xAxis: xAxis,
+			  yAxis: yAxis,
+			  valueYField: "value",
+			  valueXField: "date",
+			  tooltip: am5.Tooltip.new(root, {
+			    labelText: "{valueY}"
+			  })
+			}));
+			
+			
+			// Add scrollbar
+			// https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
+			chart.set("scrollbarX", am5.Scrollbar.new(root, {
+			  orientation: "horizontal"
+			}));
+			
+			
+			// Set data
+			var data = generateDatas(jsonlist3.length);
+			series.data.setAll(data);
+			
+			
+			// Make stuff animate on load
+			// https://www.amcharts.com/docs/v5/concepts/animations/
+			series.appear(1000);
+			chart.appear(1000, 100);
+			
+			}); // end am5.ready()
+		}
+	});
 
 	
-});
+}
 
 
 
