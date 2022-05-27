@@ -65,7 +65,7 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="/jspweb2/js/productsales.js"></script>
+	<script type="text/javascript" src="/jspweb/js/productsales.js"></script>
 
 </body>
 </html>
